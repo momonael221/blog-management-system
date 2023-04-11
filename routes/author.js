@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+
 // getting all authors
 router.get('/', function (request, response) {
     response.send('Getting all author');
@@ -25,4 +26,7 @@ router.delete('/:id', function (request, response) {
     response.send('Delete an author');
 });
 
+
+//Pour rendre les routes visibles dans d'autres fichiers
+//il faudra les exporter
 module.exports = router;
