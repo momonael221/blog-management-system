@@ -1,32 +1,17 @@
-const router = require('express').Router();
+const router        = require('express').Router();
+const controller    = require('../controller/author');
 
 
 // getting all authors
-router.get('/', function (request, response) {
-    response.send('Getting all author');
-});
-
+router.get('/', controller.getAllAuthors);
 // getting a single author
-router.get('/:id', function (request, response) {
-    response.send('Getting a single author');
-});
-
+router.post('/', controller.addAuthor);
 // adding an author
-router.post('/', function (request, response) {
-    response.send('Adding an author');
-});
-
+router.get('/:id', controller.getAuthor);
 // edit an author
-router.put('/:id', function (request, response) {
-    response.send('Edit an author');
-});
-
+router.put('/:id', controller.editAuthor);
 // delete an author
-router.delete('/:id', function (request, response) {
-    response.send('Delete an author');
-});
+router.delete('/:id', controller.removeAuthor);
 
 
-//Pour rendre les routes visibles dans d'autres fichiers
-//il faudra les exporter
 module.exports = router;

@@ -1,28 +1,17 @@
-const router = require('express').Router();
+const router        = require('express').Router();
+const controller    = require('../controller/article')
 
-// getting all article
-router.get('/', function (request, response) {
-    response.send('Getting all article');
-});
 
+// getting all articles
+router.get('/', controller.getAllArticles);
 // getting a single article
-router.get('/:id', function (request, response) {
-    response.send('Getting a single article');
-});
-
+router.get('/:id', controller.getArticle);
 // adding an article
-router.post('/', function (request, response) {
-    response.send('Adding an article');
-});
-
+router.post('/', controller.addArticle);
 // edit an article
-router.put('/:id', function (request, response) {
-    response.send('Edit an article');
-});
-
+router.put('/:id', controller.editArticle);
 // delete an article
-router.delete('/:id', function (request, response) {
-    response.send('Delete an article');
-});
+router.delete('/:id', controller.removeArticle);
+
 
 module.exports = router;

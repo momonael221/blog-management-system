@@ -1,28 +1,17 @@
-const router = require('express').Router();
+const router        = require('express').Router();
+const controller    = require('../controller/user');
+
 
 // getting all users
-router.get('/', function (request, response) {
-    response.send('Getting all user');
-});
-
+router.get('/', controller.getAllUsers);
 // getting a single user
-router.get('/:id', function (request, response) {
-    response.send('Getting a single user');
-});
-
+router.post('/', controller.addUser);
 // adding an user
-router.post('/', function (request, response) {
-    response.send('Adding an user');
-});
-
+router.get('/:id', controller.getUser);
 // edit an user
-router.put('/:id', function (request, response) {
-    response.send('Edit an user');
-});
-
+router.put('/:id', controller.editUser);
 // delete an user
-router.delete('/:id', function (request, response) {
-    response.send('Delete an user');
-});
+router.delete('/:id', controller.removeUser);
+
 
 module.exports = router;
